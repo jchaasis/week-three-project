@@ -1,0 +1,50 @@
+body {
+  margin-left: 25%;
+
+}
+
+#container {
+display: flex;
+flex-wrap: wrap;
+width: 300px;
+justify-content:center;
+/*border: 2px solid rgb(169, 224, 173);*/
+
+}
+
+.numberButton{
+background-color: rgb(38, 173, 52);
+width:25%;
+color: white;
+padding: 20px;
+border: 1px solid rgb(169, 224, 173);
+}
+
+.operator{
+background-color: rgb(135, 218, 136);
+}
+
+#header{
+  display: flex;
+  flex-direction: row;
+  background-color: green;
+  width: 100%;
+}
+
+#clear{
+  background-color: green;
+  width: 25%;
+  padding: 20px;
+  color: white;
+}
+
+#display{
+  width: 70%;
+}
+
+#main{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+}
