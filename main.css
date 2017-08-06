@@ -1,12 +1,15 @@
 body {
-  margin-left: 25%;
+  margin: 25%;
 
 }
 
 #container {
+background-color: rgb(138, 134, 54);
+padding: 10px;
+border-radius: 3px;
 display: flex;
 flex-wrap: wrap;
-width: 300px;
+width: 100%;
 justify-content:center;
 /*border: 2px solid rgb(169, 224, 173);*/
 
@@ -14,10 +17,12 @@ justify-content:center;
 
 .numberButton{
 background-color: rgb(38, 173, 52);
-width:25%;
+width:23%;
 color: white;
 padding: 20px;
 border: 1px solid rgb(169, 224, 173);
+border-radius: 3px;
+margin: 1%;
 }
 
 .operator{
@@ -27,19 +32,37 @@ background-color: rgb(135, 218, 136);
 #header{
   display: flex;
   flex-direction: row;
-  background-color: green;
   width: 100%;
+  border-radius: 3px;
+  margin: 2px;
 }
 
 #clear{
   background-color: green;
-  width: 25%;
+  width: 23%;
   padding: 20px;
   color: white;
+  border: 1px solid rgb(169, 224, 173);
+  border-radius: 3px;
+  margin:1%;
+  background-color: green;
+
+
 }
 
 #display{
-  width: 70%;
+  text-align:center;
+  font-family:sans-serif;
+  font-weight: 400;
+
+  width: 75%;
+  color: white;
+  border: 1px solid rgb(169, 224, 173);
+  border-radius: 3px;
+  margin:1%;
+  background-color: green;
+
+
 }
 
 #main{

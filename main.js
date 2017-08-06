@@ -1,22 +1,25 @@
 // console.log('hello');
 //created an array for the numbers
-let nums = document.querySelectorAll(".numberButton")
+let numberArr = [{'symbol':'0', 'value':0}, {'symbol':'1', 'value':1},{'symbol':'2', 'value':2},{'symbol':'3', 'value':3},{'symbol':'4', 'value':4},{'symbol':'5', 'value':5},{'symbol':'6', 'value':6},{'symbol':'7', 'value':7}, {'symbol':'8', 'value':8}, {'symbol':'9', 'value':9}];
+
+let nums = document.querySelectorAll(".numberButton");
+let ops = document.querySelectorAll(".operator");
 
 
 let body = document.querySelector("#body");
 let main = document.querySelector("#main");
 let container = document.querySelector("#container");
 let display = document.querySelector("#display");
-// let numberButton= document.querySelector(".numberButton");
+let clear = document.querySelector('#clear');
 // let buttonValue = numberButton.getAttribute("value");
 
 
 //if we click a number button, we want the value of that button to display in the display box
-
-let displayStr=[];
+let displayStr='';
 let displayNumber= function(num)  {
             displayStr += num
             display.innerHTML = `<p>${displayStr}</p>`;
+            console.log(displayStr);
           }
 
 // if we click a number, it will pull the button value from the string.
@@ -25,3 +28,25 @@ for (let b=0; b<nums.length; b++){
       displayNumber(nums[b].value);
     });
 }
+
+//now that we have numbers showing up in the display, we need to convert them to numbers then execute the designated operation.
+
+for (let i=0; i<displayStr.length; i++){
+
+    for (let n=0; n<numberArr; n++){
+        if (displayStr.charAt(i) == numberArr[n]) {
+         displayStr == numberArr[n].value
+        }
+    }
+}
+
+
+//when the '=' is pressed, perform the expression
+
+
+
+// if the Clear button is pressed, clear the display
+
+clear.addEventListener('click',function(str){
+  displayNumber.replace(displayNumber, '');
+});
