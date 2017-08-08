@@ -16,12 +16,12 @@ let clear = document.querySelector('#clear');
 
 //if we click a number button, we want the value of that button to display in the display box
 let displayStr='';
+
 let displayNumber= function(num)  {
             displayStr += num
             display.innerHTML = `<p>${displayStr}</p>`;
             console.log(displayStr);
           }
-
 // if we click a number, it will pull the button value from the string.
 for (let b=0; b<nums.length; b++){
     nums[b].addEventListener('click', function () {
@@ -29,16 +29,26 @@ for (let b=0; b<nums.length; b++){
     });
 }
 
-//now that we have numbers showing up in the display, we need to convert them to numbers then execute the designated operation.
+//now that we have numbers showing up in the display, we need to loop through and perfom the opertaion
+
+
+let displayArr=[];
 
 for (let i=0; i<displayStr.length; i++){
-
-    for (let n=0; n<numberArr; n++){
-        if (displayStr.charAt(i) == numberArr[n]) {
-         displayStr == numberArr[n].value
-        }
-    }
+  displayArr.push(displayStr[i])
+console.log(displayArr);
 }
+
+
+// for (let i=0; i<nums; i++){
+//
+//     for (let n=0; n<numberArr; n++){
+//         if (displayStr[i] === numberArr[n].symbol) {
+//          displayStr == numberArr[n].value
+//
+//         }
+//     }
+// }
 
 
 //when the '=' is pressed, perform the expression
@@ -46,7 +56,7 @@ for (let i=0; i<displayStr.length; i++){
 
 
 // if the Clear button is pressed, clear the display
-
-clear.addEventListener('click',function(str){
-  displayNumber.replace(displayNumber, '');
+let emptyArr = [];
+clear.addEventListener("click",function(){
+  display.innerHTML= ``;
 });
