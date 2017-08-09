@@ -1,62 +1,86 @@
-// console.log('hello');
-//created an array for the numbers
-let numberArr = [{'symbol':'0', 'value':0}, {'symbol':'1', 'value':1},{'symbol':'2', 'value':2},{'symbol':'3', 'value':3},{'symbol':'4', 'value':4},{'symbol':'5', 'value':5},{'symbol':'6', 'value':6},{'symbol':'7', 'value':7}, {'symbol':'8', 'value':8}, {'symbol':'9', 'value':9}];
-
+// create global variables
+    //arrays from the html buttons
+let button = document.querySelectorAll("button");
 let nums = document.querySelectorAll(".numberButton");
 let ops = document.querySelectorAll(".operator");
 
-
+    // variables from htmnl elements
 let body = document.querySelector("#body");
 let main = document.querySelector("#main");
 let container = document.querySelector("#container");
 let display = document.querySelector("#display");
 let clear = document.querySelector('#clear');
-// let buttonValue = numberButton.getAttribute("value");
 
 
 //if we click a number button, we want the value of that button to display in the display box
-let displayStr='';
+// let displayStr='';
+let operand1='';
+let operand2='';
+let operator='';
 
 let displayNumber= function(num)  {
-            displayStr += num
-            display.innerHTML = `<p>${displayStr}</p>`;
-            console.log(displayStr);
+
+            display.innerHTML = `<p>${operand1+operator+operand2}</p>`;
           }
-// if we click a number, it will pull the button value from the string.
-for (let b=0; b<nums.length; b++){
-    nums[b].addEventListener('click', function () {
-      displayNumber(nums[b].value);
+
+// if we click a button, it will pull the button value from the button array.
+for (let b=0; b<button.length; b++){
+    button[b].addEventListener('click', function () {
+  //create operand1
+  // if (operator === ''){
+  //   operand1 += button[b].value;
+  // }
+  if (operand1 === ''){
+    operand1 = Number(button[b].value, 10);
+  }
+  //create operator
+  else if (button[b].value === "+" || button[b].value === "-" || button[b].value === "*" || button[b].value === "/"){
+    operator = button[b].value;
+  }
+  //create operand2
+
+  // else if (operator === "+" || operator === "-" ||operator === "*" ||operator === "/"){
+  //   operand2 += button[b].value;}
+  // });
+
+  else if (operand2 === ''){
+    operand2 = Number(button[b].value, 10);
+  }
+    displayNumber(button[b].value);
     });
 }
 
-//now that we have numbers showing up in the display, we need to loop through and perfom the opertaion
+//now that we have numbers values for both operands and the operator, perform the expression when the = button is clicked.
+
+let equals = document.querySelector("#equals");
+
+equals.addEventListener("click", function(){
+
+// perform the designated operation
+  let perform = null;
 
 
-let displayArr=[];
+  if (operator === '+') {
+    perform = operand1 + operand2;
+  } else if (operator === '-') {
+      perform = operand1 - operand2;
+  } else if (operator === '*') {
+      perform = operand1 * operand2;
+  } else if (operator === '/') {
+      perform = operand1 / operand2;
+  }
 
-for (let i=0; i<displayStr.length; i++){
-  displayArr.push(displayStr[i])
-console.log(displayArr);
-}
-
-
-// for (let i=0; i<nums; i++){
-//
-//     for (let n=0; n<numberArr; n++){
-//         if (displayStr[i] === numberArr[n].symbol) {
-//          displayStr == numberArr[n].value
-//
-//         }
-//     }
-// }
-
-
-//when the '=' is pressed, perform the expression
+  display.innerHTML=`${perform}`;
+  console.log(perform);
+});
 
 
 
 // if the Clear button is pressed, clear the display
-let emptyArr = [];
 clear.addEventListener("click",function(){
-  display.innerHTML= ``;
+  displayStr= '';
+  operand1= '';
+  operand2= '';
+  operator= '';
+  display.innerHTML = '';
 });
